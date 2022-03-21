@@ -22,7 +22,7 @@ int main()
 	cout << res << endl;
 	char* str1 = new char[100];
 	char* str2 = new char[110];
-	strcpy(str1, "Привет мир Почему прикол!");
+	strcpy(str1, "Artem KARAsAA@WA");
 	findANDreplace(str1, str2);
 	cout << str1 << endl;
 	cout << str2 << endl;
@@ -38,33 +38,42 @@ void convert(float y, char* str)
 void findANDreplace(char* str_l, char* resault_l) {
 	memset(resault_l, 0, sizeof(char) * 100);
 
+	char exchange[] = " A-A-A ";
+
 	char str[250] = {};
 	for (short i = 0; i < strlen(str_l); i++) {
 		str[i] = str_l[i];
 	}
 
-	short ii = strlen(str);
-	
-	
-	short i = 0;
-	
-	
-	short iii;
-	short addres = 0;
-	
+	int i = 0;
 
 	int address = strcspn(str, "@");
-	char str1[250];
+	char str1[250] = {};
+	char str2[250] = {};
 
 	for (int i = 0; i < address; i++) {
 		str1[i] = str[i];
 	}
 
-	for (;;) {
-
+	for (int i = address + 1, ia = 0; i < strlen(str); i++, ia++) {
+		str2[ia] = str[i];
 	}
 
-	for (; i < ii - 1;) {
+	memset(str, 0, sizeof(char) * 250);
+	char res[250] = {};
+	int iii = 0;
+	char str_t[100] = {};
+	char str_t2[100]  = {};
+	int pass = 0;
+	for ( ;i < strlen(str1); ) {
+		strncpy(str, i + str1, 50);
+		iii = strcspn(str, "A");
+		strncpy(str_t, i + str, iii);
+		i = i + iii+1;
+		cout << str1[i]<<endl;
+	}
+
+	/*for (; i < ii - 1;) {
 		strncpy(str1, i + str, 50);
 		iii = strcspn(str1, " ");
 
@@ -91,5 +100,5 @@ void findANDreplace(char* str_l, char* resault_l) {
 	for (int i = 0; i < strlen(end_resault); i++)
 	{
 		resault_l[i] = end_resault[i];
-	}
+	}*/
 }
